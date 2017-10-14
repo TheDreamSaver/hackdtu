@@ -10,6 +10,22 @@ import { UpdatesComponent } from './components/updates/updates.component';
 import { FaqComponent } from './components/faq/faq.component';
 import { SupportComponent } from './components/support/support.component';
 
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabase } from 'angularfire2/database-deprecated';
+import { AngularFireAuth } from 'angularfire2/auth';
+
+import { BlogService } from './services/blog.service';
+
+export const firebaseConfig = {
+  apiKey: "AIzaSyBmxcKa9XWey1Z0fY2Qn7qB3VWkn6kclRA",
+  authDomain: "besafe-594a2.firebaseapp.com",
+  databaseURL: "https://besafe-594a2.firebaseio.com",
+  projectId: "besafe-594a2",
+  storageBucket: "besafe-594a2.appspot.com",
+  messagingSenderId: "27170852671"
+}
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,9 +37,10 @@ import { SupportComponent } from './components/support/support.component';
     SupportComponent
   ],
   imports: [
-    BrowserModule, AppRoutingModule
+    BrowserModule, AppRoutingModule, 
+    AngularFireModule.initializeApp(firebaseConfig)
   ],
-  providers: [],
+  providers: [AngularFireAuth, AngularFireDatabase, BlogService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
