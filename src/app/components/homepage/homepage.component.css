@@ -6,6 +6,8 @@
 .imgclass {
     display: flex;
     justify-content: center;
+    margin-top: -185px;
+    margin-bottom: -185px;
 }
 
 #footie {
